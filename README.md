@@ -58,16 +58,16 @@ python portafolio-regresion-lineal.py
 
 Esto puede tardar un poco la primera vez, pero lo primero que se mostrará es el entrenamiento del modelo con el número de epochs, su respectiva pérdida y el ajuste en las variables 'w' y 'b':
 
-![alt text](<Screenshot 2024-08-26 at 23.07.49.png>) 
+![alt text](</images/Screenshot 2024-08-26 at 23.07.49.png>) 
 
 Una vez finalizado el entrenamiento, se mostrará la primera gráfica, la cual representa nuestro modelo en el último epoch, mostrando los valores óptimos para el dataset de entrenamiento:
-![alt text](<Screenshot 2024-08-26 at 23.08.26.png>) 
+![alt text](</images/Screenshot 2024-08-26 at 23.08.26.png>) 
 
 Al cerrar la gráfica anterior, se desplegará la siguiente gráfica, que mostrará nuestro modelo (nuestra predicción) junto a los datos de prueba:
-![alt text](<Screenshot 2024-08-26 at 23.08.34.png>)
+![alt text](</images/Screenshot 2024-08-26 at 23.08.34.png>)
 
 Finalmente, podemos ver una predicción de nuestro modelo en un punto específico de la gráfica, además de mostrarnos el valor de nuestro MSE en el dataset de prueba. Un MSE de 9.43 es relativamente bajo, lo que implica que, en promedio, la diferencia al cuadrado entre las predicciones y los valores reales no es significativa. Esto indica que el modelo predice con bastante precisión los valores en el conjunto de datos de prueba, lo cual es una señal de buen rendimiento.
 
-![alt text](<Screenshot 2024-08-26 at 23.08.03.png>) 
+![alt text](</images/Screenshot 2024-08-26 at 23.08.03.png>) 
 
 Dentro de la carpeta de regresion-lineal, en el archivo portafolio-regresion-lineal.py, en la línea 92, puedes modificar el valor de x para probar otras predicciones.
