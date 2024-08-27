@@ -30,7 +30,7 @@ Para ejecutar el portafolio, primero necesitas clonar este repositorio y luego c
 
 1. Clonar el repositorio
 ```bash
-git clone <https://github.com/pabloamtzs/ml-m2-portafolio.git>
+git clone https://github.com/pabloamtzs/ml-m2-portafolio.git
 cd ml-m2-portafolio
 ```
 
