@@ -55,8 +55,8 @@ def train_and_plot(X, y, w, b, alpha, epochs):
             y_pred = predict(X, w, b)
             plt.plot(X, y_pred, color='red', label='Model')
             plt.title("Epoch {} | Loss: {} | w:{}, b:{}".format(e, round(avg_loss_, 2), round(w, 4), round(b, 4)))
-            plt.xlabel('YearsExperience')
-            plt.ylabel('Salary')
+            plt.xlabel('x')
+            plt.ylabel('y')
             plt.legend()
             plt.show()
     return w, b
