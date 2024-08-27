@@ -11,8 +11,9 @@ dataset_dir = os.path.join(os.path.dirname(__file__), '..', 'datasets')
 df_train = pd.read_csv(os.path.join(dataset_dir, 'train.csv'))
 df_test = pd.read_csv(os.path.join(dataset_dir, 'test.csv'))
 
+# FUNCIONES DE ENTRENAMIENTO Y PREDICCIÓN
 def update_w_and_b(X, y, w, b, alpha):
-    '''Actualiza los parámetros w y b en una época utilizando descenso de gradiente'''
+    '''Actualiza los parámetros w y b en un epoch utilizando gradient descent'''
     dl_dw = 0.0  # Gradiente de w
     dl_db = 0.0  # Gradiente de b
     N = len(X)   # Número de observaciones
@@ -26,7 +27,7 @@ def update_w_and_b(X, y, w, b, alpha):
     return w, b
 
 def avg_loss(X, y, w, b):
-    '''Calcula el error cuadrático medio (MSE) para una característica'''
+    '''Calcula el error cuadrático medio (MSE)'''
     N = len(X)
     total_error = 0.0
     for i in range(N):
@@ -35,7 +36,7 @@ def avg_loss(X, y, w, b):
     return total_error / float(N)
 
 def train(X, y, w, b, alpha, epochs):
-    '''Itera sobre múltiples épocas e imprime el progreso del entrenamiento'''
+    '''Itera sobre múltiples epochs e imprime el progreso del entrenamiento'''
     print('Training progress:')
     for e in range(epochs):
         w, b = update_w_and_b(X, y, w, b, alpha)
@@ -45,7 +46,7 @@ def train(X, y, w, b, alpha, epochs):
     return w, b
 
 def train_and_plot(X, y, w, b, alpha, epochs):
-    '''Itera sobre múltiples épocas y muestra gráficos que muestran el progreso'''
+    '''Itera sobre múltiples epochs y muestra gráficos que muestran el progreso'''
     for e in range(epochs):
         w, b = update_w_and_b(X, y, w, b, alpha)
         if e == epochs - 1:
@@ -61,10 +62,10 @@ def train_and_plot(X, y, w, b, alpha, epochs):
     return w, b
 
 def predict(X, w, b):
-    '''Realiza predicciones utilizando un modelo lineal simple'''
+    '''Predicción utilizando un modelo lineal simple'''
     return w * X + b
 
-# Bloque principal del script
+# PROGRAMA PRINCIPAL
 if __name__ == "__main__":
 
     # Preprocesar los datos
@@ -89,13 +90,13 @@ if __name__ == "__main__":
     train_and_plot(X, y, w, b, alpha, epochs)
 
     # Hacer predicciones para un valor específico
-    predict_x = 40
+    predict_x = 47
     predict_x_scaled = (predict_x - X_mean) / X_std
     predict_y_scaled = predict(predict_x_scaled, w, b)
     predict_y = predict_y_scaled * y_std + y_mean
     print('Para x={}, la predicción de y es y={}'.format(predict_x, round(predict_y, 4)))
 
-    # Probar el modelo con datos de prueba
+    # Probar el modelo con datos de prueba (test.csv)
     X_test = df_test['x'].values.flatten()
     y_test = df_test['y'].values
     X_test_scaled = (X_test - X_mean) / X_std
@@ -103,7 +104,7 @@ if __name__ == "__main__":
     y_pred_scaled = predict(X_test_scaled, w, b)
     y_pred = y_pred_scaled * y_std + y_mean
     mse_test = np.mean((y_pred - y_test) ** 2)
-    print("Mean Squared Error on test data:", mse_test)
+    print("MSE en el dataset de test:", mse_test)
 
     # Visualizar las predicciones en el conjunto de prueba
     plt.scatter(X_test, y_test, color='blue', label='Test Data')
